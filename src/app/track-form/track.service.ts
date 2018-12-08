@@ -17,7 +17,7 @@ export class TrackService {
   private readonly tracksUrl: string;
 
   constructor(private http: HttpClient) {
-    this.tracksUrl = 'http://car-performance-service.herokuapp.com/tracks';
+    this.tracksUrl = 'https://car-performance-service.herokuapp.com/tracks';
   }
 
   addTrack(track: Track): Observable<Track> {
