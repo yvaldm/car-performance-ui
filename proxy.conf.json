@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://localhost:8080",
+    "target": "http://car-performance-service.herokuapp.com",
     "secure": false,
     "pathRewrite": {
       "^/api": ""
