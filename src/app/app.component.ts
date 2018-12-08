@@ -9,9 +9,3 @@ export class AppComponent {
   title = 'Car Performance';
 }
 
-//
-// let track = new Track(666, 'fff', 'some descr');
-//
-// console.log('My hero is called ' + track.id);
-
-
