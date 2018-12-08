@@ -2,7 +2,15 @@
 
   <h1>Track information</h1>
 
-  <form #track="ngForm" (ngSubmit)="onSubmit()">
+  <form #trackForm="ngForm">
+    <li *ngFor="let mytrack of tracks">
+      ID: {{mytrack.id}} NAME: {{ mytrack.name }} DESCRIPTION: {{mytrack.description}}
+    </li>
+  </form>
+
+  <h1>Add new track</h1>
+
+  <form #trackForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" required [(ngModel)]="track.name" name="name">
@@ -18,14 +26,12 @@
       <label for="length">Length</label>
       <input type="text" class="form-control" id="length" required [(ngModel)]="track.length" name="length">
     </div>
-
     <div class="form-group">
       <label for="unit">Unit</label>
       <input type="text" class="form-control" id="unit" required [(ngModel)]="track.unit" name="unit">
     </div>
 
-
     <button type="submit" class="btn btn-success">Add track</button>
-
   </form>
+
 </div>

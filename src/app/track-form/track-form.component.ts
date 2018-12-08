@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Track} from './track';
 import {TrackService} from './track.service';
+import {Track} from './track';
 
 @Component({
   selector: 'app-track-form',
@@ -9,9 +9,9 @@ import {TrackService} from './track.service';
 })
 export class TrackFormComponent implements OnInit {
 
-  track = new Track(666, 'some track', 'some track description', 222.22, 'km');
+  track = new Track(1, 'Millbrook', 'Millbrook city course race track', 7.4, 'km');
 
-  submitted = false;
+  tracks;
 
   constructor(private trackService: TrackService) {
   }
@@ -20,8 +20,12 @@ export class TrackFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    this.trackService.addTrack(this.track).subscribe();
+    this.trackService.addTrack(this.track).subscribe(() => this.loadTracks());
+  }
+
+  loadTracks() {
+    this.trackService.getTracks()
+      .subscribe((tracks: Track[]) => this.tracks = tracks);
   }
 }
 

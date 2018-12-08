@@ -5,8 +5,7 @@ import {Observable} from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -23,5 +22,9 @@ export class TrackService {
 
   addTrack(track: Track): Observable<Track> {
     return this.http.post<Track>(this.tracksUrl, track, httpOptions);
+  }
+
+  getTracks() {
+    return this.http.get(this.tracksUrl);
   }
 }
