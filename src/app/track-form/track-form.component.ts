@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Track} from '../track';
+import {Track} from './track';
+import {TrackService} from './track.service';
 
 @Component({
   selector: 'app-track-form',
@@ -8,11 +9,11 @@ import {Track} from '../track';
 })
 export class TrackFormComponent implements OnInit {
 
-  model = new Track(666, 'some track', 'some track description');
+  track = new Track(666, 'some track', 'some track description', 222.22, 'km');
 
   submitted = false;
 
-  constructor() {
+  constructor(private trackService: TrackService) {
   }
 
   ngOnInit() {
@@ -20,13 +21,8 @@ export class TrackFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.trackService.addTrack(this.track).subscribe();
   }
-
-  // TODO: Remove this when we're done
-  get diagnostic() {
-    return JSON.stringify(this.model);
-  }
-
 }
 
 
