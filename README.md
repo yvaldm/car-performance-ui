@@ -1,8 +1,18 @@
-# Car Performance User Interface
+Car Performance UI
+======================
+
+# Description
 
 This is User Interface application written in Angular/TypeScript for car performance backend
+This application is capable of persisting track entities, car entities and retrieving whole data.
 
-Test data:
+
+# Technologies
+
+1. Angular 7.0.6
+2. TypeScript
+
+# Test data
 
 ```
 {
