@@ -16,12 +16,15 @@
       </div>
       <div class="col-md-2">
         <label for="transmission">Transmission</label>
-        <input type="text" class="form-control" id="transmission" required [(ngModel)]="car.transmission"
-               name="transmission">
+        <select class="form-control" id="transmission" required [(ngModel)]="car.transmission" name="transmission">
+          <option *ngFor="let trns of transmission" [value]="trns">{{trns}}</option>
+        </select>
       </div>
       <div class="col-md-2">
         <label for="ai">AI</label>
-        <input type="text" class="form-control" id="ai" required [(ngModel)]="car.ai" name="ai">
+        <select class="form-control" id="ai" required [(ngModel)]="car.ai" name="ai">
+          <option *ngFor="let aiMode of ai" [value]="aiMode">{{aiMode}}</option>
+        </select>
       </div>
     </div>
     <br>

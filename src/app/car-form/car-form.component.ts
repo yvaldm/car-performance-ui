@@ -15,6 +15,9 @@ export class CarFormComponent implements OnInit {
   car = new Car(1, 1, 'rdb1', 'automatic', 'enabled',
     new Value(110.12121212, 'mps'));
 
+  transmission = ['automatic', 'manual'];
+  ai = ['enabled', 'disabled'];
+
   tracks;
   cars;
 
