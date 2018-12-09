@@ -15,6 +15,7 @@ export class TrackFormComponent implements OnInit {
   tracks;
 
   constructor(private trackService: TrackService) {
+    this.loadTracks();
   }
 
   ngOnInit() {
