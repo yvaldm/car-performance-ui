@@ -1,45 +1,43 @@
 <div class="container">
 
-  <h1>Add new car</h1>
+  <h3>Add new car</h3>
 
   <form #carForm="ngForm" (ngSubmit)="saveCar()">
-
-    <div class="form-group">
-      <label for="track_id">Track</label>
-      <select class="form-control" id="track_id" required [(ngModel)]="car.track_id" name="trackId">
-        <option *ngFor="let mytrack of tracks" [value]="mytrack.id">{{mytrack.name}}</option>
-      </select>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="track_id">Track</label>
+        <select class="form-control" id="track_id" required [(ngModel)]="car.track_id" name="trackId">
+          <option *ngFor="let mytrack of tracks" [value]="mytrack.id">{{mytrack.name}}</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label for="code">Code</label>
+        <input type="text" class="form-control" id="code" required [(ngModel)]="car.code" name="code">
+      </div>
+      <div class="col-md-2">
+        <label for="transmission">Transmission</label>
+        <input type="text" class="form-control" id="transmission" required [(ngModel)]="car.transmission"
+               name="transmission">
+      </div>
+      <div class="col-md-2">
+        <label for="ai">AI</label>
+        <input type="text" class="form-control" id="ai" required [(ngModel)]="car.ai" name="ai">
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="code">Code</label>
-      <input type="text" class="form-control" id="code" required [(ngModel)]="car.code" name="code">
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="maxSpeedValue">Max Speed Value</label>
+        <input type="text" class="form-control" id="maxSpeedValue" required [(ngModel)]="car.max_speed.value"
+               name="maxSpeedValue">
+      </div>
+      <div class="col-md-3">
+        <label for="maxSpeedUnit">Max Speed Unit</label>
+        <input type="text" class="form-control" id="maxSpeedUnit" required [(ngModel)]="car.max_speed.unit"
+               name="maxSpeedUnit">
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="transmission">Transmission</label>
-      <input type="text" class="form-control" id="transmission" required [(ngModel)]="car.transmission"
-             name="transmission">
-    </div>
-
-    <div class="form-group">
-      <label for="ai">AI</label>
-      <input type="text" class="form-control" id="ai" required [(ngModel)]="car.ai" name="ai">
-    </div>
-
-    <div class="form-group">
-      <label for="maxSpeedValue">Max Speed Value</label>
-      <input type="text" class="form-control" id="maxSpeedValue" required [(ngModel)]="car.max_speed.value"
-             name="maxSpeedValue">
-    </div>
-
-    <div class="form-group">
-      <label for="maxSpeedUnit">Max Speed Unit</label>
-      <input type="text" class="form-control" id="maxSpeedUnit" required [(ngModel)]="car.max_speed.unit"
-             name="maxSpeedUnit">
-    </div>
-
+    <br>
     <button type="submit" class="btn btn-success">Add car</button>
-
   </form>
 </div>

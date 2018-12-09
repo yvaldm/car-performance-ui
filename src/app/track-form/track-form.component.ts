@@ -20,7 +20,7 @@ export class TrackFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  saveTrack() {
     this.trackService.addTrack(this.track).subscribe(() => this.loadTracks());
   }
 

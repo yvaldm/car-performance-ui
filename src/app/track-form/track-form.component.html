@@ -1,42 +1,46 @@
 <div class="container">
 
-  <h1>Track information</h1>
-
   <form #trackForm="ngForm">
-    <li *ngFor="let mytrack of tracks">
-      ID: {{mytrack.id}} NAME: {{ mytrack.name }} DESCRIPTION: {{mytrack.description}}
+    <ul>
+      <li *ngFor="let mytrack of tracks">
+        <label>[{{mytrack.id}}] {{ mytrack.name }} ({{mytrack.description}}):
+          {{mytrack.length.value}}({{mytrack.length.unit}})</label>
 
-      <p *ngFor="let car of mytrack.cars">
-        CAR: {{car.id}} CODE: {{ car.code }} TRANSMISSION: {{car.transmission}} AI: {{car.ai}} MAX SPEED:
-        {{car.max_speed.value}} {{car.max_speed.unit}}
-      </p>
+        <ul>
+          <li *ngFor="let car of mytrack.cars">
+            <label>[{{car.id}}] {{ car.code }} {{car.transmission}} {{car.ai}}
+              {{car.max_speed.value}}/{{car.max_speed.unit}} </label>
+          </li>
+        </ul>
 
-    </li>
+      </li>
+    </ul>
   </form>
 
-  <h1>Add new track</h1>
+  <h3>Add new track</h3>
 
-  <form #trackForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="track.name" name="name">
-    </div>
+  <form #trackForm="ngForm" (ngSubmit)="saveTrack()">
 
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" required [(ngModel)]="track.description"
-             name="description">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="track.name" name="name">
+      </div>
+      <div class="col-md-3">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="track.description"
+               name="description">
+      </div>
+      <div class="col-md-1">
+        <label for="length">Length</label>
+        <input type="text" class="form-control" id="length" required [(ngModel)]="track.length.value" name="length">
+      </div>
+      <div class="col-md-1">
+        <label for="unit">Unit</label>
+        <input type="text" class="form-control" id="unit" required [(ngModel)]="track.length.unit" name="unit">
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="length">Length</label>
-      <input type="text" class="form-control" id="length" required [(ngModel)]="track.length.value" name="length">
-    </div>
-
-    <div class="form-group">
-      <label for="unit">Unit</label>
-      <input type="text" class="form-control" id="unit" required [(ngModel)]="track.length.unit" name="unit">
-    </div>
+    <p></p>
 
     <button type="submit" class="btn btn-success">Add track</button>
   </form>
