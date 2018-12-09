@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TrackService} from './track.service';
 import {Track} from './track';
+import {Value} from '../value';
 
 @Component({
   selector: 'app-track-form',
@@ -9,7 +10,7 @@ import {Track} from './track';
 })
 export class TrackFormComponent implements OnInit {
 
-  track = new Track(1, 'Millbrook', 'Millbrook city course race track', 7.4, 'km');
+  track = new Track(1, 'Millbrook', 'Millbrook city course race track', new Value(7.4, 'km'), null);
 
   tracks;
 
